@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {withFormik, Form , Field} from "formik";
-import {Link} from "react-router-dom";
+
 import * as Yup from "yup";
 
 const CustomerRegistration=({values, errors, touched})=>{
