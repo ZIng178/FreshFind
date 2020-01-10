@@ -1,9 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {withFormik, Form , Field} from "formik";
 
 import * as Yup from "yup";
+import axios from "axios";
 
-const CustomerRegistration=({values, errors, touched})=>{
+const CustomerRegistration=({values, errors, touched, status})=>
+{
+    const [user,setUser]=useState(" ");
+    useEffect(()=>{
+        setUser(status)
+        console.log(status)
+    },[status])
+
    return (
    <div className="card">
         <div className="signForm">
@@ -100,8 +108,19 @@ validationSchema: Yup.object().shape({
     city: Yup.string().required("city cannot be left empty"),
     state: Yup.string().required("State is required"),
     zipCode: Yup.string().required("Zipcode is required")
-  })
+  }),
+  handleSubmit(values, tools){
+    axios.post("https://farmers-fresh-api.herokuapp.com/api/users/login", values)
+    .then(res=> {
+      tools.setStatus(res.data.user)
+      tools.resetForm()
+      console.log("response",res)
 
+
+})
+
+.catch(err=>console.log(err))
+  }
 })(CustomerRegistration)
 
 

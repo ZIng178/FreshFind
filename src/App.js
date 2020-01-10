@@ -1,19 +1,17 @@
-import React ,{useState} from "react";
+import React ,{useState,useEffect} from "react";
 import {Route} from "react-router-dom";
 import {BrowserRouter as Router, Link}  from "react-router-dom"
 import CustomerLogin from "./CustomerLogin";
 import FarmerLogin from "./FarmerLogin";
 import CustomerRegistration from "./CustomerRegistration";
-import FarmerRegistration from "./FarmerRegistration"
+import FarmerRegistration from "./FarmerRegistration";
+import axios from "axios"
  
 function App(){
-  // farmer state 
-  const [farmer,setFarmer]=useState("")
+  
   
 
-  // Customer state 
-  const [user,setUser]=useState("")
-  
+
 
   return (
     <div className="App">
