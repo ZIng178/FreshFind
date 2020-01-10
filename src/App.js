@@ -13,7 +13,7 @@ function App(){
 
   useEffect(() => {
     axios
-      .get("/produce")
+      .get("https://farmers-fresh-api.herokuapp.com/api/produce/")
       .then(res => {
         console.log("App.js, GET PRODUCE RES: ", res);
         setFarmItems(res.data);
@@ -27,6 +27,10 @@ function App(){
 
 
   return (
+   <div className="farm-items">
+     {farmItems.map=>item
+      return  }
+   </div> 
     <div className="App">
       <header className="App-header">
         <h1>Fresh Finds</h1>
