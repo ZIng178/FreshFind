@@ -5,10 +5,23 @@ import CustomerLogin from "./CustomerLogin";
 import FarmerLogin from "./FarmerLogin";
 import CustomerRegistration from "./CustomerRegistration";
 import FarmerRegistration from "./FarmerRegistration";
-import axios from "axios"
+import axios from"axios"
  
 function App(){
-  
+  const [farmItems, setFarmItems] = useState();
+ 
+
+  useEffect(() => {
+    axios
+      .get("/produce")
+      .then(res => {
+        console.log("App.js, GET PRODUCE RES: ", res);
+        setFarmItems(res.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+  console.log("App.js, farmItems: ", farmItems);
   
 
 
