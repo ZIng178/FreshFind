@@ -23,7 +23,7 @@ function ListItems(){
 return (
     <React.Fragment>
     {farmItems.map(item=>(
-     <img  src={item.produceImgURL}/>
+     <img className="received" src={item.produceImgURL}/>
       ))}
       </React.Fragment>
 )

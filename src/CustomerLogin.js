@@ -1,5 +1,4 @@
 import React, {useState, useEffect}from "react";
-import {Route, Link} from "react-router-dom";
 import {withFormik, Form , Field} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -19,6 +18,7 @@ const CustomerLogin =({values, errors, touched,status})=>{
     <div className="App">
      <div className="customer-login">
      <h1> Log in to Get Started!</h1> 
+
       </div>
       <Form>
       <label htmlFor="name">
@@ -64,6 +64,7 @@ const LoginCustomer=withFormik({
             password : props.password || "",
         }
     },
+   
     validationSchema: Yup.object().shape({
         username: Yup.string().required("UserName is required"),
         password: Yup.string().required("Password is required").min(6, "passwrod should be atleast 6 characters"),
